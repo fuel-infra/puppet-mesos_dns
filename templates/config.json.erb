@@ -1,0 +1,28 @@
+<%
+require 'json'
+config = {}
+config['zk']                 = @zk_url if @zk_url
+config['masters']            = @masters_list if @masters_list
+config['zkDetectionTimeout'] = @zk_detection_timeout.to_i
+config['refreshSeconds']     = @refresh_seconds.to_i
+config['ttl']                = @ttl.to_i
+config['domain']             = @domain
+config['port']               = @port.to_i
+config['httpport']           = @http_port.to_i
+config['resolvers']          = @resolvers
+config['timeout']            = @timeout.to_i
+config['httpon']             = @http_on
+config['dnson']              = @dns_on
+config['externalon']         = @external_on
+config['listener']           = @listener
+config['SOAMname']           = @soa_master_name
+config['SOARname']           = @soa_mail_name
+config['SOARefresh']         = @soa_refresh.to_i
+config['SOARetry']           = @soa_retry.to_i
+config['SOAExpire']          = @soa_expire.to_i
+config['SOAMinttl']          = @soa_min_ttl.to_i
+config['recurseon']          = @recurse_on
+config['enforceRFC952']      = @enforce_rfc952
+config['IPSources']          = @ip_sources
+-%>
+<%= JSON.pretty_generate config %>

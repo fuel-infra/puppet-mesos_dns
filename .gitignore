@@ -1,0 +1,5 @@
+.idea
+Gemfile.lock
+*.swp
+*~
+spec/fixtures

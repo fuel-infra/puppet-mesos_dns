@@ -1,0 +1,30 @@
+{
+  "name": "puppet-mesos_dns",
+  "version": "1.0.0",
+  "author": "Dmitry Ilyin",
+  "summary": "Manage the Mesos-DNS installation",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/fuel-infra/puppet-mesos_dns",
+  "project_page": "https://github.com/fuel-infra/puppet-mesos_dns",
+  "issues_url": "https://github.com/fuel-infra/puppet-mesos_dns/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu"
+    },
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.2.0 < 3.4.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "description": "Manage the Mesos-DNS installation",
+  "types": [
+  ],
+  "dependencies": [
+  ]
+}
