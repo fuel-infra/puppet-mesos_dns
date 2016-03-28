@@ -1,9 +1,16 @@
-description "DNS service for Mesos"
+description "Mesos DNS service"
 
 start on runlevel [2345]
 stop on runlevel [!2345]
 
 respawn
 respawn limit 10 5
+
+<% if @run_user -%>
+setuid <%= @run_user %>
+<% end-%>
+<% if @run_group -%>
+setgid <%= @run_group %>
+<% end -%>
 
 exec <%= @binary_file_path -%> -config <%= @config_file_path %>

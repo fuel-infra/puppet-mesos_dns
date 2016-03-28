@@ -9,8 +9,6 @@ class mesos_dns (
   $service_name         = $mesos_dns::params::service_name,
   $service_provider     = $mesos_dns::params::service_provider,
 
-  $startup_manage       = $mesos_dns::params::startup_manage,
-
   $zk_servers           = $mesos_dns::params::zk_servers,
   $zk_mesos_path        = $mesos_dns::params::zk_mesos_path,
   $zk_default_port      = $mesos_dns::params::zk_default_port,
@@ -22,7 +20,11 @@ class mesos_dns (
   $config_dir_path      = $mesos_dns::params::config_dir_path,
   $config_file_mode     = $mesos_dns::params::config_file_mode,
 
+  $startup_manage       = $mesos_dns::params::startup_manage,
   $binary_file_path     = $mesos_dns::params::binary_file_path,
+  $startup_system       = $mesos_dns::params::startup_system,
+  $run_user             = $mesos_dns::params::run_user,
+  $run_group            = $mesos_dns::params::run_group,
 
   $zk_detection_timeout = $mesos_dns::params::zk_detection_timeout,
   $refresh_seconds      = $mesos_dns::params::refresh_seconds,
@@ -94,6 +96,9 @@ class mesos_dns (
     binary_file_path => $binary_file_path,
     config_file_path => $config_file_path,
     service_name     => $service_name,
+    startup_system   => $startup_system,
+    run_user         => $run_user,
+    run_group        => $run_group,
   }
 
   class { '::mesos_dns::service' :

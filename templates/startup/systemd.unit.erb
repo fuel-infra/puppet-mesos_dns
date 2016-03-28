@@ -1,0 +1,20 @@
+[Unit]
+Description=Mesos DNS service
+After=network.target
+Wants=network.target
+
+[Service]
+ExecStart=<%= @binary_file_path -%> -config <%= @config_file_path %>
+Restart=on-abort
+Restart=always
+RestartSec=20
+
+<% if @run_user -%>
+User=<%= @run_user %>
+<% end-%>
+<% if @run_group -%>
+Group=<%= @run_group %>
+<% end -%>
+
+[Install]
+WantedBy=multi-user.target

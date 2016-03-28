@@ -1,13 +1,22 @@
 source 'https://rubygems.org'
 
-group :development, :test do
-  gem 'puppetlabs_spec_helper', :require => 'false'
-  gem 'rspec-puppet', :require => 'false'
-  gem 'pry', :require => 'false'
+group :test do
+  gem 'rake'
+  gem 'puppet', ENV['PUPPET_VERSION'] || '~> 3.8.0'
+  gem 'rspec-puppet'
+  gem 'puppetlabs_spec_helper'
+  gem 'metadata-json-lint'
+  gem 'rspec-puppet-facts'
 end
 
-if puppetversion = ENV['PUPPET_GEM_VERSION']
-  gem 'puppet', puppetversion, :require => false
-else
-  gem 'puppet', '~> 3.8', :require => false
+group :development do
+  gem 'travis'
+  gem 'vagrant-wrapper'
+  gem 'puppet-blacksmith'
+  gem 'guard-rake'
+end
+
+group :system_tests do
+  gem 'beaker'
+  gem 'beaker-rspec'
 end

@@ -21,8 +21,10 @@ class mesos_dns::params {
   $config_file_mode     = '0640'
 
   $binary_file_path     = '/usr/bin/mesos-dns'
-
   $startup_manage       = false
+  $startup_system       = undef
+  $run_user             = undef
+  $run_group            = undef
 
   $zk_detection_timeout = '30'
   $refresh_seconds      = '60'
